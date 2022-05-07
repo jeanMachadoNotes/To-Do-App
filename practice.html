@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Practice</title>
+    </head>
+    <body>
+        <h3>Person obj converted to JSON (string)</h3>
+        <p id="string"></p>
+        <h3>Book JSON</h3>
+        <p id="string2"></p>
+        <h3>Book JSON converted to Object, then outputting certain properties</h3>
+        <p id="string3"></p>
+        <h3>Rendered from Local Storage after calling Key 'favLaptop'</h3>
+        <p id="demo"></p>
+
+        <script>
+
+            // JSON Stringfy Method - Converts obj to string
+
+            var person = {fname:'Bob', lname: 'Smith', age: 31, rank: 'white-3', attendance: 77 };
+
+            personJSON = JSON.stringify(person);
+
+            document.getElementById('string').innerHTML = personJSON;
+
+            //JSON Parse Method - Converts str to obj
+
+            var book = {title: "Beginners Guide to Code", page_count: 212, subject: "technology", construction: "hardcover" };
+
+            bookJSON = JSON.stringify(book);
+
+            document.getElementById('string2').innerHTML = bookJSON;
+
+            bookObj = JSON.parse(bookJSON);
+
+            document.getElementById('string3').innerHTML = bookObj.title +  " is a " + bookObj.page_count + " page " + bookObj.construction + " on " + bookObj.subject;
+
+            //Local Storage Method
+
+            window.localStorage.setItem("favLaptop", "MSI GS66 Stealth");
+
+            var favlaptop = window.localStorage.getItem("favLaptop");
+
+            document.getElementById("demo").innerHTML = favlaptop;
+
+        </script>
+    </body>
+</html>
